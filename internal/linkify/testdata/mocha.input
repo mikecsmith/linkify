@@ -1,0 +1,21 @@
+
+
+  add
+    1) should add positive numbers
+    ✔ should add negative numbers
+
+
+  1 passing (5ms)
+  1 failing
+
+  1) add
+       should add positive numbers:
+
+      AssertionError: expected 3 to equal 4
+      + expected - actual
+
+      -3
+      +4
+
+      at Context.<anonymous> (test/math.test.js:6:26)
+      at process.processImmediate (node:internal/timers:504:21)

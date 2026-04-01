@@ -1,0 +1,67 @@
+version: 2
+
+project_name: linkify
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: ./cmd/lfy
+    binary: lfy
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - Makefile
+      - config.example.yaml
+      - macos/**/*
+      - linux/**/*
+
+brews:
+  - repository:
+      owner: mikecsmith
+      name: homebrew-tap
+    directory: Formula
+    homepage: "https://github.com/mikecsmith/linkify"
+    description: "Wraps file:line references in terminal output with clickable OSC8 hyperlinks"
+    license: "MIT"
+    dependencies:
+      - name: go
+        type: build
+    install: |
+      system "make", "install", "PREFIX=#{prefix}"
+    caveats: |
+      Configuration: ~/.config/linkify/config.yaml
+
+      Usage:
+        go test ./... 2>&1 | lfy
+        pnpm test 2>&1 | lfy
+
+      The lfy:// URL scheme has been registered.
+    test: |
+      input = "main.go:42:5: undefined: foo"
+      output = pipe_output("#{bin}/lfy --dry-run", input)
+      assert_match "main.go:42", output
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"

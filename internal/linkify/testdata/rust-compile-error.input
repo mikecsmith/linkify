@@ -1,0 +1,11 @@
+   Compiling testproject v0.1.0 (/private/tmp/linkify-testdata/rustproject)
+error[E0308]: mismatched types
+ --> src/bad.rs:2:18
+  |
+2 |     let x: i32 = "hello";
+  |            ---   ^^^^^^^ expected `i32`, found `&str`
+  |            |
+  |            expected due to this
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `testproject` (lib) due to 1 previous error

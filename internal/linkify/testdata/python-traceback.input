@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/private/tmp/linkify-testdata/pyproject/crash.py", line 7, in <module>
+    main()
+    ~~~~^^
+  File "/private/tmp/linkify-testdata/pyproject/crash.py", line 5, in main
+    helper()
+    ~~~~~~^^
+  File "/private/tmp/linkify-testdata/pyproject/crash.py", line 2, in helper
+    return 1 / 0
+           ~~^~~
+ZeroDivisionError: division by zero

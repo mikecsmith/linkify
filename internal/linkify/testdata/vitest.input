@@ -1,0 +1,31 @@
+ RUN  v4.1.2 /private/tmp/linkify-testdata/viteproject
+
+ ❯ src/__tests__/math.test.ts (2 tests | 1 failed) 5ms
+     × positive numbers 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/__tests__/math.test.ts > add > positive numbers
+AssertionError: expected 3 to be 4 // Object.is equality
+
+- Expected
++ Received
+
+- 4
++ 3
+
+ ❯ src/__tests__/math.test.ts:6:23
+      4| describe('add', () => {
+      5|   test('positive numbers', () => {
+      6|     expect(add(1, 2)).toBe(4);
+       |                       ^
+      7|   });
+      8|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  13:17:04
+   Duration  159ms (transform 17ms, setup 0ms, import 24ms, tests 5ms, environment 0ms)

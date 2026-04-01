@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    formatting:
+      glob: "*.go"
+      run: mise exec -- go fmt ./...
+    vet:
+      glob: "*.go"
+      run: mise exec -- go vet ./...
+    linter:
+      glob: "*.go"
+      run: mise exec -- golangci-lint run ./...
+    tests:
+      glob: "*.go"
+      run: mise exec -- go test -short ./...

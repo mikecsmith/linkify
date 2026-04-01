@@ -1,0 +1,26 @@
+FAIL src/__tests__/math.test.ts
+  → file:///test/project/src/__tests__/math.test.ts:1:1
+  ● add › positive numbers
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 3
+
+      3 | describe('add', () => {
+      4 |   test('positive numbers', () => {
+    > 5 |     expect(add(1, 2)).toBe(4);
+        |                       ^
+      6 |   });
+      7 |
+      8 |   test('negative numbers', () => {
+
+      at Object.<anonymous> (src/__tests__/math.test.ts:5:23)
+  → file:///test/project/src/__tests__/math.test.ts:5:23
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.014 s
+Ran all test suites.
+

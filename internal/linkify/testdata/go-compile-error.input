@@ -1,0 +1,2 @@
+# github.com/example/testproject
+./bad.go:4:14: cannot use "hello" (untyped string constant) as int value in variable declaration

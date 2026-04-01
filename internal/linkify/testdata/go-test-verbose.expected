@@ -1,0 +1,16 @@
+=== RUN   TestAdd
+=== RUN   TestAdd/positive
+    main_test.go:8: 1+2 should equal 4
+  → file:///test/project/main_test.go:8:1
+=== RUN   TestAdd/negative
+--- FAIL: TestAdd (0.00s)
+    --- FAIL: TestAdd/positive (0.00s)
+    --- PASS: TestAdd/negative (0.00s)
+=== RUN   TestSubtract
+    main_test.go:19: not implemented
+  → file:///test/project/main_test.go:19:1
+--- FAIL: TestSubtract (0.00s)
+FAIL
+FAIL	github.com/example/testproject	0.368s
+FAIL
+

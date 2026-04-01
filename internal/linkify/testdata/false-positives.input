@@ -1,0 +1,8 @@
+listening on http://localhost:3000
+connected to postgres://user:pass@host:5432/db
+Duration: 42s
+Step 3/10 : RUN npm install
+2024-01-15T10:30:42Z INFO starting server
+sha256:abc123def456
+v1.2.3
+node:internal/modules/cjs/loader:1078

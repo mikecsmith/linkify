@@ -1,0 +1,1 @@
+vet.go:6:14: fmt.Printf format %d has arg "hello" of wrong type string

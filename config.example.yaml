@@ -1,0 +1,64 @@
+# linkify configuration
+# Wraps file:line references in terminal output with clickable OSC8 hyperlinks.
+#
+# Install to: ~/.config/linkify/config.yaml
+#
+# Usage:
+#   go test ./... 2>&1 | lfy
+#   pnpm test 2>&1 | lfy
+#
+# URL template placeholders: {file}, {line}, {col}, {pid}
+# {pid} = the shell PID where linkify ran — used by the opener to find
+#         the correct terminal pane. Not needed for GUI editors.
+#
+# ──────────────────────────────────────────────────────────────────────────────
+# Editor presets (uncomment one):
+# ──────────────────────────────────────────────────────────────────────────────
+#
+# Neovim/Vim (default — install with: lfy service install)
+# url_template: "lfy://open?file={file}&line={line}&col={col}&pid={pid}"
+#
+# VS Code
+# url_template: "vscode://file/{file}:{line}:{col}"
+#
+# VS Code Insiders
+# url_template: "vscode-insiders://file/{file}:{line}:{col}"
+#
+# Zed
+# url_template: "zed://file/{file}:{line}:{col}"
+#
+# JetBrains IDEs (IntelliJ, GoLand, WebStorm, PyCharm, etc. — requires Toolbox)
+# url_template: "jetbrains://open?file={file}&line={line}&column={col}"
+#
+# Sublime Text (requires "enable_url_handling": true in Sublime preferences)
+# url_template: "subl://open?url=file://{file}&line={line}&column={col}"
+#
+# TextMate
+# url_template: "txmt://open?url=file://{file}&line={line}&column={col}"
+#
+# Nova (Panic)
+# url_template: "nova://open?path={file}&line={line}&column={col}"
+#
+# BBEdit
+# url_template: "bbedit://open?url=file://{file}&line={line}&column={col}"
+#
+# ──────────────────────────────────────────────────────────────────────────────
+
+url_template: "lfy://open?file={file}&line={line}&col={col}&pid={pid}"
+
+# Path to editor binary (used by lfy --open for nvim/vim).
+# If unset, searches ~/.local/bin/nvim, /opt/homebrew/bin/nvim, /usr/local/bin/nvim, then $PATH.
+# editor_path: "/opt/homebrew/bin/nvim"
+
+# Additional file extensions to recognize beyond the built-in list.
+# extra_extensions:
+#   - ".prisma"
+#   - ".astro"
+
+# Custom matchers — run before built-in patterns.
+# Use named capture groups: (?P<file>...), (?P<line>...), (?P<col>...)
+# matchers:
+#   - name: bazel
+#     pattern: '(?P<file>[^\s:]+):(?P<line>\d+):(?P<col>\d+): error'
+#   - name: webpack
+#     pattern: 'ERROR in (?P<file>[^\s(]+)\((?P<line>\d+),(?P<col>\d+)\)'
